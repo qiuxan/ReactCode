@@ -1,0 +1,55 @@
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.13.1/react.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.13.1/JSXTransformer.js"></script>
+
+</head>
+
+<body id="">
+<script type="text/jsx">
+
+    var Counter = React.createClass({
+
+        getInitialState:function(){
+
+            return{
+                count:0
+            };
+        },
+
+        add:function(){
+            this.setState({
+                count:this.state.count+1
+            });
+
+        },
+
+        subtract:function(){
+
+            this.setState({
+                count:this.state.count-1
+            });
+
+        },
+
+        render:function () {
+            return(
+
+                <div>
+                    <h1>Counter: {this.state.count} <span id="count"></span></h1>
+
+                    <button onClick={this.subtract}>Subtract 1</button>
+                    <button onClick={this.add}>Add 1</button>
+                </div>
+            );
+        }
+
+    });
+
+    React.render(<Counter />, document.body);
+
+
+</script>
+</body>
+</html>
