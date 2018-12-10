@@ -25,6 +25,13 @@ var TaskApp = React.createClass({
         this.setState({task:e.target.value});
 
     },
+    removeTask: function(item) {
+        var items = this.state.items;
+        delete items[item];
+
+        this.setState({ items });
+
+    },
 
     render:function(){
 
@@ -33,7 +40,7 @@ var TaskApp = React.createClass({
             <div>
                 <h1>My Tasks</h1>
 
-                <TaskList items={this.state.items}  />
+                <TaskList items={this.state.items} deleteClickHandlers={this.removeTask} />
 
                 <form onSubmit={this.addTask}>
 
